@@ -1,0 +1,65 @@
+<section class="job-bg page job-details-page">
+  <div class="container">
+    <div class="breadcrumb-section">
+      <ol class="breadcrumb">
+        <li><%= link_to "Home", root_path %></li>
+      </ol><!-- breadcrumb -->
+    </div><!-- breadcrumb -->
+
+    <div class="job-details">
+      <div class="section job-ad-item">
+        <div class="item-info">
+
+          <div class="ad-info">
+            <span><span><a href="#" class="title"><%= @restaurant.name %></a></span></span>
+            <div class="ad-meta">
+              <ul>
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @restaurant.city %> / <%= @restaurant.state %> / <%= @restaurant.zipcode %></li>
+                <li><i class="fa fa-clock-o" aria-hidden="true"></i><%= @restaurant.address1 %></li>
+                <li><i class="fa fa-money" aria-hidden="true"></i>$<%= @restaurant.phone %></li>
+                <li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%= @restaurant.email %></li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>Hace <%= time_ago_in_words(@restaurant.created_at) %></li>
+              </ul>
+            </div><!-- ad-meta -->
+          </div><!-- ad-info -->
+        </div><!-- item-info -->
+      </div><!-- job-ad-item -->
+
+      <div class="job-details-info">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="section job-description">
+              <div class="description-info">
+                <h1>Descripción</h1>
+                <p><span><%= @restaurant.description %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="section job-short-info">
+              <h1>Información Rapida</h1>
+              <ul>
+                <li><span class="icon"><i class="fa fa-bolt" aria-hidden="true"></i></span>Posteado: Hace <%= time_ago_in_words(@restaurant.created_at) %></li>
+                <li><span class="icon"><i class="fa fa-user-plus" aria-hidden="true"></i></span> Empleador: Lance Ladaga</li>
+                <li><span class="icon"><i class="fa fa-industry" aria-hidden="true"></i></span>Industria: <%= @restaurant.name %></li>
+                <li><span class="icon"><i class="fa fa-line-chart" aria-hidden="true"></i></span>Experiencia: No Requerida</li>
+              </ul>
+            </div>
+            <div class="section company-info">
+              <h1>Información de Empresa</h1>
+              <ul>
+                <li>Nombre: <a href="#">Dropbox Inc</a></li>
+                <li>Dirección: London, United Kingdom</li>
+                <li>Industria: <a href="#">Technology</a></li>
+                <li>Teléfono: +1234 567 8910</li>
+                <li>Email: <a href="#">info@dropbox.com</a></li>
+                <li>Website: <a href="#">www.dropbox.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- row -->
+      </div><!-- job-details-info -->
+    </div><!-- job-details -->
+  </div><!-- container -->
+</section><!-- job-details-page -->
