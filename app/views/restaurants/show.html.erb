@@ -36,6 +36,17 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-8">
+            <div class="section job-description">
+              <div class="description-info">
+                <h1>Reviews</h1>
+                <% @reviews.each do |review| %>
+                  <p><span><%= review.comment %></p>
+                  <p><span><%= review.rating %></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
 
           <div class="col-sm-4">
             <div class="section job-short-info">
