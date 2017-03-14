@@ -34,6 +34,7 @@
                 <h1>Descripción</h1>
                 <p><span><%= @restaurant.description %></p>
                 <p><span class="star-rating" data-score=<%= @avg_rating %>></span></p>
+                <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
@@ -41,9 +42,30 @@
             <div class="section job-description">
               <div class="description-info">
                 <h1>Reviews</h1>
-                <% @reviews.each do |review| %>
-                  <p><span><%= review.comment %></p>
-                  <p><span><%= review.rating %></p>
+                <% if @reviews.blank? %>
+                  <p><span>No reviews</span></p>
+                <% else %>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="col-md-3"></th>
+                        <th class="col-md-9"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @reviews.each do |review| %>
+                      <tr>
+                        <td>
+                          <h5><%= "#{review.user.email}" %></h5>
+                        </td>
+                        <td>
+                          <div class="clearflix star-rating" data-score=<%= review.rating %>></div>
+                          <p><span><%= review.comment %></span></p>
+                        </td>
+                      </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
                 <% end %>
               </div>
             </div>
