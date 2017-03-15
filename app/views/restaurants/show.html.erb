@@ -21,6 +21,10 @@
                 <li><i class="fa fa-bookmark-o" aria-hidden="true"></i><%= @restaurant.email %></li>
                 <li><i class="fa fa-calendar" aria-hidden="true"></i>Hace <%= time_ago_in_words(@restaurant.created_at) %></li>
               </ul>
+              <% if current_user.try(:admin?) %>
+                <%= link_to "Edit", edit_restaurant_path, class: 'btn btn-info' %>
+                <%= link_to "Destroy", restaurant_path, method: :delete, data: {confirm: "Are youre sure?"}, class: 'btn btn-warning' %>
+              <% end %>
             </div><!-- ad-meta -->
           </div><!-- ad-info -->
         </div><!-- item-info -->

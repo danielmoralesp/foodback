@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
+  before_action :is_admin?, only: [:edit, :update, :destroy]
 
   def index
+
   end
 
   def new
@@ -27,6 +29,22 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(restaurant_params)
+    redirect_to @restaurant
+  end
+
+  def destroy
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    redirect_to root_path
+  end
+
   def search
     @restaurants = Restaurant.search(params)
   end
@@ -34,6 +52,13 @@ class RestaurantsController < ApplicationController
   private
     def restaurant_params
       params.require(:restaurant).permit(:name, :description, :address1, :address2, :city, :state, :zipcode, :phone, :email, :category_id)
+    end
+
+    def is_admin?
+      if !current_user.try(:admin?)
+        flash[:notice] = "You are not athorize edit or delete"
+        redirect_to root_path
+      end
     end
 
 end
