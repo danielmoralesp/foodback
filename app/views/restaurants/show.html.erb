@@ -37,6 +37,7 @@
               <div class="description-info">
                 <h1>Descripción</h1>
                 <p><span><%= @restaurant.description %></p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21646.37927825458!2d<%= @restaurant.longitude %>!3d<%= @restaurant.latitude %>!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1489592288874" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 <p><span class="star-rating" data-score=<%= @avg_rating %>></span></p>
                 <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
               </div>
